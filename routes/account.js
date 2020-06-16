@@ -53,4 +53,11 @@ router.put('/:name', function(req, res, next) {
 });
 
 
+/* DELETE Todo  */
+router.delete('/:id', function(req, res, next) {
+  Account.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
 module.exports = router;
